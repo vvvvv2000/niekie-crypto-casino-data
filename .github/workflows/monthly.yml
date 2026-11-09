@@ -26,16 +26,17 @@ jobs:
           M="${{ github.event.inputs.month }}"
           if [ -z "$M" ]; then M=$(date -u -d "$(date -u +%Y-%m-01) -1 day" +%Y-%m); fi
           echo "MONTH=$M" >> "$GITHUB_ENV"
-          mkdir -p payouts feeds
+          mkdir -p payouts feeds scores
           get() { curl -sf --retry 3 --max-time 120 "$1" -o "$2.tmp" && [ -s "$2.tmp" ] && mv "$2.tmp" "$2" || { rm -f "$2.tmp"; echo "skipped $2"; }; }
           [ -f "payouts/$M.csv" ] || get "https://niekie.app/api/v1/payouts-month?month=$M&format=csv" "payouts/$M.csv"
           [ -f "feeds/$M.json" ] || get "https://niekie.app/review/$M/data.json" "feeds/$M.json"
           [ -f "feeds/$M.csv" ]  || get "https://niekie.app/review/$M/data.csv" "feeds/$M.csv"
+          [ -f "scores/$M.csv" ] || get "https://niekie.app/api/v1/scores-month?month=$M&format=csv" "scores/$M.csv"
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add payouts feeds
+          git add payouts feeds scores
           git diff --cached --quiet && { echo "nothing new for $MONTH"; exit 0; }
           git commit -m "Add $MONTH"
           git push

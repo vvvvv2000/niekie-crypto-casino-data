@@ -26,6 +26,14 @@ Write-up: [Crypto Casino Payouts, October 2026](https://niekie.app/blog/crypto-c
 
 For each casino that publishes a feed of settled bets: rounds broadcast, the share that lost, and the aggregate return. Each JSON file carries a SHA-256 `hash` of its figures, matching the hash printed on [the issue page](https://niekie.app/review), so a copy can be checked against the original.
 
+### `scores/YYYY-MM.csv`: safety scores at the end of each month
+
+Each casino's Niekie safety score (0 to 100) as sealed on the public ledger at the end of the month: the score, its grade, the five pillar scores behind it, the month's low and high, and how many times the score was resealed that month. `hash` is the full SHA-256 of the sealed ledger entry; look it up on [the public ledger](https://niekie.app/proof) to check the row.
+
+`method_version` matters when comparing months. The scoring method has changed, and so have the pillar scales (the licence pillar was out of 30 under 2.0 and out of 15 under 2.1). Compare overall scores across versions with care, and pillars only within one version. July 2026 covers the first weeks of scoring and includes early runs, which is why some monthly lows are very low.
+
+From November 2026 the payout files use the live export's columns (`payouts`, `payouts_estimated`, licence status and score on the day of export); October 2026 is frozen exactly as its report published it.
+
 ## What this cannot tell you
 
 - **Approval speed.** The chain shows when a payout leaves, not when a player asked for it.
