@@ -1,0 +1,75 @@
+{
+  "issue": "2026-10",
+  "covers": {
+    "from": "2026-10-01",
+    "to": "2026-10-31"
+  },
+  "generated_at": "2026-11-09T06:53:32.434Z",
+  "feeds": [
+    {
+      "casino": "Roobet",
+      "games": 7208,
+      "rounds_broadcast": 6746766,
+      "losing_rounds": 5744154,
+      "pct_rounds_that_lost": 85.1,
+      "aggregate_return": 0.976,
+      "commercial": true
+    },
+    {
+      "casino": "Cloudbet",
+      "games": 1582,
+      "rounds_broadcast": 4738348,
+      "losing_rounds": 4049677,
+      "pct_rounds_that_lost": 85.5,
+      "aggregate_return": 0.814,
+      "commercial": true
+    },
+    {
+      "casino": "Winna",
+      "games": 3154,
+      "rounds_broadcast": 3447368,
+      "losing_rounds": 1138368,
+      "pct_rounds_that_lost": 33,
+      "aggregate_return": 3.411,
+      "commercial": true
+    },
+    {
+      "casino": "Shuffle",
+      "games": 4229,
+      "rounds_broadcast": 2153234,
+      "losing_rounds": 1446352,
+      "pct_rounds_that_lost": 67.2,
+      "aggregate_return": 0.973,
+      "commercial": true
+    },
+    {
+      "casino": "Yeet",
+      "games": 1959,
+      "rounds_broadcast": 1587611,
+      "losing_rounds": 1229681,
+      "pct_rounds_that_lost": 77.5,
+      "aggregate_return": 1.003,
+      "commercial": true
+    },
+    {
+      "casino": "BC.Game",
+      "games": 7743,
+      "rounds_broadcast": 451685,
+      "losing_rounds": 377835,
+      "pct_rounds_that_lost": 83.7,
+      "aggregate_return": 1.005,
+      "commercial": true
+    }
+  ],
+  "corpus": {
+    "rounds_this_month": 19125012,
+    "games_this_month": 19411,
+    "games_tracked_all_time": 29783,
+    "operators_rated": 29,
+    "ledger_entries": 6836
+  },
+  "hash": "c1542d21fb084363962d7f67301ca09237b3b92a1d3cce564854c538b9422648",
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "license_name": "CC BY-SA 4.0",
+  "attribution": "Niekie, https://niekie.app/review/2026-10"
+}

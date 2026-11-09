@@ -1,0 +1,57 @@
+{
+  "issue": "2026-07",
+  "covers": {
+    "from": "2026-07-01",
+    "to": "2026-07-31"
+  },
+  "generated_at": "2026-11-09T06:53:31.145Z",
+  "feeds": [
+    {
+      "casino": "Roobet",
+      "games": 3613,
+      "rounds_broadcast": 336303,
+      "losing_rounds": 289982,
+      "pct_rounds_that_lost": 86.2,
+      "aggregate_return": 0.999,
+      "commercial": true
+    },
+    {
+      "casino": "Winna",
+      "games": 1029,
+      "rounds_broadcast": 177953,
+      "losing_rounds": 58122,
+      "pct_rounds_that_lost": 32.7,
+      "aggregate_return": 2.652,
+      "commercial": true
+    },
+    {
+      "casino": "Shuffle",
+      "games": 1924,
+      "rounds_broadcast": 108275,
+      "losing_rounds": 72322,
+      "pct_rounds_that_lost": 66.8,
+      "aggregate_return": 0.96,
+      "commercial": true
+    },
+    {
+      "casino": "Stake.com",
+      "games": 1903,
+      "rounds_broadcast": 31464,
+      "losing_rounds": 17846,
+      "pct_rounds_that_lost": 56.7,
+      "aggregate_return": 9.621,
+      "commercial": true
+    }
+  ],
+  "corpus": {
+    "rounds_this_month": 653995,
+    "games_this_month": 6875,
+    "games_tracked_all_time": 26498,
+    "operators_rated": 29,
+    "ledger_entries": 6708
+  },
+  "hash": "6e350899744bdf7692e890c14a60cac02d2cd99298e1408e00c0e7a204696238",
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "license_name": "CC BY-SA 4.0",
+  "attribution": "Niekie, https://niekie.app/review/2026-07"
+}
