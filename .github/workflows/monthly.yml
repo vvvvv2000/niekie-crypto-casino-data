@@ -1,0 +1,41 @@
+# Adds last month's data on the 2nd of each month, from niekie.app's public
+# endpoints. A month already in the repo is never overwritten: published files
+# stay frozen, so a citation keeps pointing at the same numbers.
+name: Monthly data
+
+on:
+  schedule:
+    - cron: "0 6 2 * *"
+  workflow_dispatch:
+    inputs:
+      month:
+        description: "Month to add (YYYY-MM). Empty means last month."
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  add-month:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch the month
+        run: |
+          set -euo pipefail
+          M="${{ github.event.inputs.month }}"
+          if [ -z "$M" ]; then M=$(date -u -d "$(date -u +%Y-%m-01) -1 day" +%Y-%m); fi
+          echo "MONTH=$M" >> "$GITHUB_ENV"
+          mkdir -p payouts feeds
+          get() { curl -sf --retry 3 --max-time 120 "$1" -o "$2.tmp" && [ -s "$2.tmp" ] && mv "$2.tmp" "$2" || { rm -f "$2.tmp"; echo "skipped $2"; }; }
+          [ -f "payouts/$M.csv" ] || get "https://niekie.app/api/v1/payouts-month?month=$M&format=csv" "payouts/$M.csv"
+          [ -f "feeds/$M.json" ] || get "https://niekie.app/review/$M/data.json" "feeds/$M.json"
+          [ -f "feeds/$M.csv" ]  || get "https://niekie.app/review/$M/data.csv" "feeds/$M.csv"
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add payouts feeds
+          git diff --cached --quiet && { echo "nothing new for $MONTH"; exit 0; }
+          git commit -m "Add $MONTH"
+          git push

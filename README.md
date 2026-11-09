@@ -37,4 +37,6 @@ For each casino that publishes a feed of settled bets: rounds broadcast, the sha
 
 > Niekie (2026). *Niekie crypto casino data* [Data set]. https://github.com/vvvvv2000/niekie-crypto-casino-data
 
+New months are added automatically on the 2nd of each month (`.github/workflows/monthly.yml`); a month already published is never changed.
+
 Questions, corrections or a custom cut: contact@niekie.app. Compiled by Maj Jan Krošl. Method: https://niekie.app/how-we-score
